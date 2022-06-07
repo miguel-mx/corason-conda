@@ -103,7 +103,7 @@ print "\n$0 requires the queries argument (--q\n\n" and print color('reset') and
 
 	print "\n$0 requires the special_org argument (--s\n\n" and print color('reset') and print "for help, type:\ncorason.pl -h\n\nConsult our wiki at:https://github.com/nselem/EvoDivMet/wiki\n\n" and HelpMessage(1) unless $special;  ## A genome list is mandatory
 
-my $dir_scripts="./CORASON";
+my $dir_scripts="../CORASON";
 if($conda){print"Conda mode"; $dir_scripts="CORASON";}
 #print("gbk $gbk $rast $special");exit;
 

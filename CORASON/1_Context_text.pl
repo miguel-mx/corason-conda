@@ -3,7 +3,6 @@ use strict;
 use warnings;
 use Getopt::Long 'HelpMessage';
 use Cwd;
-use File::Basename;
 no warnings 'experimental::smartmatch';
 
 =head1 NAME
@@ -71,10 +70,6 @@ if($dir_scripts eq "CORASON"){
 	} # $outname
 else{	
 	$query_dir="output/$query_name-output";} # $outname
-
-print("\n\nQuery_dir $query_dir Queries $queries\n\n");
-my $query-file = basename($queries, ".query");
-print("\nQuery file $query-file");
 
 system("mkdir $query_dir");
 system("cp $queries $query_dir/$queries");

@@ -43,7 +43,7 @@ sub align{
 	my $Working_dir=shift;
 	my @sorted_clusters=@_;
 
-	system "muscle -in $Working_dir/FASTAINTER/$gen.interFastatodos -out $Working_dir/ALIGNMENTS_GB/$gen.muscle.pir -fasta -quiet -group";
+	system "muscle -align $Working_dir/FASTAINTER/$gen.interFastatodos -output $Working_dir/ALIGNMENTS_GB/$gen.muscle.pir";
 
 #	print "muscle -in $Working_dir/FASTAINTER/$gen.interFastatodos -out $Working_dir/ALIGNMENTS_GB/$gen.muscle.pir -fasta -quiet -group";
 	my $nombre="$Working_dir/ALIGNMENTS_GB/$gen.muscle.pir";

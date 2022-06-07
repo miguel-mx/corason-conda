@@ -70,8 +70,8 @@ printVariables($verbose);
 ########## Main ######################################################
 
 my @LISTA=split(",",$lista);
-my $outname_dir="./output/$queries-output";
-my $dir_scripts="./CORASON";
+my $outname_dir="output/$queries-output";
+my $dir_scripts="../CORASON";
 if($conda){$outname_dir="$queries-output";
            $dir_scripts="CORASON";}
 #$outname=~s/\.query//;
@@ -118,7 +118,9 @@ print "Creating query hits tree, without considering the core-clusters\n";
 	`cat $outname_dir/*.input2> $outname_dir/PrincipalHits`;
 
         print "\nAligning Sequences \n";
-        system "muscle -in $outname_dir/PrincipalHits -out $outname_dir/PrincipalHits.muscle -fasta -quiet -group";
+        #system "muscle -in $outname_dir/PrincipalHits -out $outname_dir/PrincipalHits.muscle -fasta -quiet -group";
+        system "muscle -align $outname_dir/PrincipalHits -output $outname_dir/PrincipalHits.muscle";
+
         print "\nShaving alignments with Gblocks\n";
         system "Gblocks $outname_dir/PrincipalHits.muscle -b4=5 -b5=n -b3=5";
         system("$dir_scripts/RenamePrincipalHits.pl $outname_dir PrincipalHits.muscle-gb $rast_ids");
