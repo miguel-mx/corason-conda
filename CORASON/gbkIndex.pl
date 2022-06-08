@@ -48,7 +48,7 @@ sub cleaning{
 		system("rm -r $outdir/GENOMES");
 		system("rmdir $outdir/GENOMES");
 		}
-		system("mkdir $outdir/GENOMES");
+		system("mkdir -p $outdir/GENOMES");
 	if (-e "$outdir/Corason_Rast.IDs"){
 		print "cleaning old files....\n";
 		system("rm -r $outdir/Corason_Rast.IDs");
