@@ -1,5 +1,5 @@
-#!/usr/bin/perl 
-use lib '/usr/local/lib/perl5/site_perl/5.20.3';
+#!/usr/bin/env perl 
+#use lib '/usr/local/lib/perl5/site_perl/5.20.3';
 use Cwd qw(cwd);
 
 ## I want to extract CDS entrys and ids from a geneBankFile
