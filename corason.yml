@@ -1,13 +1,13 @@
 name: corason
 channels:
-  - bioconda
   - conda-forge
-  - ranaroussi
-  - anaconda
+  - bioconda
   - defaults
 dependencies:
   - _libgcc_mutex=0.1=conda_forge
   - _openmp_mutex=4.5=2_gnu
+  - blas=2.131=openblas
+  - blas-devel=3.9.0=31_h1ea3ea9_openblas
   - blast=2.12.0=hf3cf87c_4
   - bzip2=1.0.8=h7f98852_4
   - c-ares=1.18.1=h7f98852_0
@@ -19,14 +19,24 @@ dependencies:
   - icu=70.1=h27087fc_0
   - keyutils=1.6.1=h166bdaf_0
   - krb5=1.19.3=h08a2579_0
+  - ld_impl_linux-64=2.43=h712a8e2_4
+  - libblas=3.9.0=31_h59b9bed_openblas
+  - libcblas=3.9.0=31_he106b2a_openblas
   - libcurl=7.83.1=h2283fc2_0
   - libedit=3.1.20191231=he28a2e2_2
   - libev=4.33=h516909a_1
+  - libffi=3.4.2=h7f98852_5
   - libgcc-ng=12.1.0=h8d9b700_16
+  - libgfortran-ng=13.2.0=h69a702a_0
+  - libgfortran5=13.2.0=ha4646dd_0
   - libgomp=12.1.0=h8d9b700_16
   - libiconv=1.16=h516909a_0
+  - liblapack=3.9.0=31_h7ac8fdf_openblas
+  - liblapacke=3.9.0=31_he2f377e_openblas
   - libnghttp2=1.47.0=he49606f_0
   - libnsl=2.0.0=h7f98852_0
+  - libopenblas=0.3.29=ha39b09d_0
+  - libsqlite=3.39.4=h753d276_0
   - libssh2=1.10.0=ha35d2d1_2
   - libstdcxx-ng=12.1.0=ha89aaad_16
   - libxml2=2.9.14=h22db469_0
@@ -34,6 +44,9 @@ dependencies:
   - muscle=5.1=h9f5acd7_1
   - ncurses=6.3=h27087fc_1
   - newick_utils=1.6=hec16e2b_5
+  - nomkl=3.0=0
+  - openblas=0.3.29=h06a4308_0
+  - openblas-devel=0.3.29=ha39b09d_0
   - openssl=3.0.3=h166bdaf_0
   - pcre=8.45=h9c3ff4c_0
   - perl=5.32.1=2_h7f98852_perl5
@@ -57,6 +70,13 @@ dependencies:
   - perl-pathtools=3.75=pl5321hec16e2b_3
   - perl-scalar-list-utils=1.62=pl5321hec16e2b_0
   - perl-types-serialiser=1.01=pl5321hdfd78af_0
+  - pip=24.0=pyhd8ed1ab_0
+  - python=3.7.12=hf930737_100_cpython
+  - readline=8.2=h8228510_1
+  - setuptools=69.0.3=pyhd8ed1ab_0
+  - sqlite=3.39.4=h4ff8645_0
+  - tk=8.6.12=h27826a3_0
+  - wheel=0.42.0=pyhd8ed1ab_0
   - xz=5.2.5=h516909a_1
   - zlib=1.2.12=h166bdaf_0
-prefix: /home/ccmunam/anaconda3/envs/corason
+prefix: /home/ccmunam/miniconda3/envs/corason
