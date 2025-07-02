@@ -24,6 +24,7 @@ def format_rast_id(count):
 def parse_gbk(gbk_file, rast_id, output_dir):
     faa_path = output_dir / "GENOMES" / f"{rast_id}.faa"
     txt_path = output_dir / "GENOMES" / f"{rast_id}.txt"
+    num_cds_written = 0  # contador nuevo
 
     with open(faa_path, "w") as faa_out, open(txt_path, "w") as txt_out:
         txt_out.write("contig_id\tfeature_id\ttype\tlocation\tstart\tstop\tstrand\tfunction\tlocus_tag\tfigfam\tspecies\tnucleotide_sequence\tamino_acid\tsequence_accession\n")
@@ -31,9 +32,7 @@ def parse_gbk(gbk_file, rast_id, output_dir):
         for seq_record in SeqIO.parse(gbk_file, "genbank"):
             accession = seq_record.id
             locus = seq_record.name
-            species = "unknown"
-            if seq_record.annotations.get("organism"):
-                species = seq_record.annotations["organism"]
+            species = seq_record.annotations.get("organism", "unknown")
 
             count = 1
             for feature in seq_record.features:
@@ -55,6 +54,10 @@ def parse_gbk(gbk_file, rast_id, output_dir):
                     SeqIO.write(seq_record_out, faa_out, "fasta")
 
                     count += 1
+                    num_cds_written += 1
+
+    if num_cds_written == 0:
+        print(f"⚠️  Warning: No CDS with translation found in {gbk_file.name}")
 
 def main(gbk_dir, output_dir):
     gbk_dir = Path(gbk_dir)
