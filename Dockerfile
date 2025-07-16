@@ -37,7 +37,7 @@ RUN git clone https://github.com/vim/vim.git
 RUN cd vim && ./configure && make VIMRUNTIMEDIR=/usr/share/vim/vim74 && make install
 #_________________________________________________________________________________________________
 ## CORASON
-RUN cd /opt && git clone https://github.com/nselem/corason.git
+RUN cd /opt && git clone https://github.com/miguel-mx/corason-conda.git
 ####__________________________________________________________________
 # Installing GBlocks
 RUN tar -xf /opt/corason/CORASON/Gblocks_Linux64_0.91b.tar.Z -C /opt/ && ln -s /opt/Gblocks_0.91b/Gblocks /usr/bin/Gblocks
