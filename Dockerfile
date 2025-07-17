@@ -15,8 +15,7 @@ RUN apt-get update && \
 RUN if [ ! -d /opt ]; then mkdir /opt; fi
 ###____________________________________________
 # Installing blast
-RUN mkdir /opt/blast && curl ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.30/ncbi-blast-2.2.30+-x64-linux.tar
-.gz | tar -zxC /opt/blast --strip-components=1
+RUN mkdir /opt/blast && curl ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.30/ncbi-blast-2.2.30+-x64-linux.tar.gz | tar -zxC /opt/blast --strip-components=1
 ######_____________________________________________________________________________________
 # Instaling muscle
  RUN wget -O /opt/muscle3.8.tar.gz http://www.drive5.com/muscle/downloads3.8.31/muscle3.8.31_i86linux64.tar.gz
