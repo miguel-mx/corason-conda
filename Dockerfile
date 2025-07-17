@@ -18,18 +18,15 @@ RUN if [ ! -d /opt ]; then mkdir /opt; fi
 RUN mkdir /opt/blast && curl ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.30/ncbi-blast-2.2.30+-x64-linux.tar.gz | tar -zxC /opt/blast --strip-components=1
 ######_____________________________________________________________________________________
 # Instaling muscle
- RUN wget -O /opt/muscle3.8.tar.gz http://www.drive5.com/muscle/downloads3.8.31/muscle3.8.31_i86linux64.tar.gz
- RUN mkdir /opt/muscle && tar -C /opt/muscle -xzvf /opt/muscle3.8.tar.gz && ln -s /opt/muscle/muscle3.8.31_i86linux64 /o
-pt/muscle/muscle
+RUN wget -O /opt/muscle3.8.tar.gz http://www.drive5.com/muscle/downloads3.8.31/muscle3.8.31_i86linux64.tar.gz
+RUN mkdir /opt/muscle && tar -C /opt/muscle -xzvf /opt/muscle3.8.tar.gz && ln -s /opt/muscle/muscle3.8.31_i86linux64 /opt/muscle/muscle
 ####___________________________________________________________________
 ## Instaling FastTree
-RUN mkdir /opt/fasttree && wget -O /opt/fasttree/FastTree http://www.microbesonline.org/fasttree/FastTree && chmod +x /o
-pt/fasttree/FastTree
+RUN mkdir /opt/fasttree && wget -O /opt/fasttree/FastTree http://www.microbesonline.org/fasttree/FastTree && chmod +x /opt/fasttree/FastTree
 #________________________________________________________________________________
 # Installing NewickTools
 RUN wget -O /opt/newick-utils-1.6.tar.gz https://github.com/tjunier/newick_utils/archive/refs/heads/master.tar.gz
-RUN mkdir /opt/nw && tar -C /opt/nw -xzvf /opt/newick-utils-1.6.tar.gz && cd /opt/nw/newick_utils-master && cp src/* /us
-r/local/bin
+RUN mkdir /opt/nw && tar -C /opt/nw -xzvf /opt/newick-utils-1.6.tar.gz && cd /opt/nw/newick_utils-master && cp src/* /usr/local/bin
 ##___________________________________________________
 #### Vim
 RUN cd ~
@@ -45,14 +42,12 @@ RUN cd vim && ./configure && make VIMRUNTIMEDIR=/usr/share/vim/vim74 && make ins
 RUN cd /opt && git clone https://github.com/miguel-mx/corason-conda.git
 ####__________________________________________________________________
 # Installing GBlocks
-RUN tar -xf /opt/corason-conda/CORASON/Gblocks_Linux64_0.91b.tar.Z -C /opt/ && ln -s /opt/Gblocks_0.91b/Gblocks /usr/bin
-/Gblocks
+RUN tar -xf /opt/corason-conda/CORASON/Gblocks_Linux64_0.91b.tar.Z -C /opt/ && ln -s /opt/Gblocks_0.91b/Gblocks /usr/bin/Gblocks
 ## Other perl modules
 RUN locale-gen en_US.utf8
 
 ######### PATHS ENVIRONMENT
-ENV PATH /opt/blast/bin:$PATH:/opt/muscle:/opt/Gblocks:/opt/quicktree/quicktree_1.1/bin:/opt/corason/CORASON:/opt/fasttr
-ee
+ENV PATH /opt/blast/bin:$PATH:/opt/muscle:/opt/Gblocks:/opt/quicktree/quicktree_1.1/bin:/opt/corason/CORASON:/opt/fasttree
 RUN chmod +x /opt/corason-conda/CORASON/*pl
 ## Moving to myapp directory
 RUN mkdir /home/output
