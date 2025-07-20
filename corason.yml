@@ -16,3 +16,4 @@ dependencies:
   - fasttree
   - newick_utils
   - make
+  - biopython
